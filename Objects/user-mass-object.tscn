@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://clm7jxierdq37"]
+
+[ext_resource type="PackedScene" uid="uid://bifgswi0tag7p" path="res://Objects/mass-object.tscn" id="1_te5tx"]
+[ext_resource type="Script" path="res://Objects/user-mass-object.gd" id="2_0u81r"]
+[ext_resource type="Shader" path="res://Objects/mass-object.gdshader" id="2_5m8hx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7k6e"]
+shader = ExtResource("2_5m8hx")
+shader_parameter/color = Color(0.172549, 1, 1, 1)
+
+[node name="Object" groups=["user-obj"] instance=ExtResource("1_te5tx")]
+material = SubResource("ShaderMaterial_j7k6e")
+freeze = true
+script = ExtResource("2_0u81r")
+
+[node name="Arrow" type="Polygon2D" parent="." index="0"]
+color = Color(1, 0, 0, 1)
+antialiased = true
+polygon = PackedVector2Array(0, -2, 0, 2, 10, 2, 10, -2)
+
+[node name="ArrowHead" type="Polygon2D" parent="Arrow" index="0"]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(12, 0, 10, -4, 10, 4)

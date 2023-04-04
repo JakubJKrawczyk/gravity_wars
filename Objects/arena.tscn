@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://u3x3l7qdjuo"]
+
+[ext_resource type="Shader" path="res://Levels/Arena.gdshader" id="1_8b1c5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_syxfj"]
+radius = 300.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rn612"]
+shader = ExtResource("1_8b1c5")
+shader_parameter/color = Color(0, 0, 0.780392, 1)
+shader_parameter/distance_from_center = 0.46
+shader_parameter/width = 0.007
+shader_parameter/outer_smoothness = 20.0
+shader_parameter/inner_smoothness = 30.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_ls7l8"]
+size = Vector2(650, 650)
+
+[node name="Arena" type="Area2D"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_syxfj")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D"]
+material = SubResource("ShaderMaterial_rn612")
+mesh = SubResource("QuadMesh_ls7l8")

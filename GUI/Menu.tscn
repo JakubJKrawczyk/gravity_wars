@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqoe22bo0jrsc"]
+
+[ext_resource type="Texture2D" uid="uid://da2spbinhdinp" path="res://GUI/Images/BG.webp" id="1_8d6aj"]
+[ext_resource type="Script" path="res://GUI/Menu.gd" id="1_v2lf7"]
+[ext_resource type="FontFile" uid="uid://dl6vrsfjpetrl" path="res://GUI/Fonts/KosmicFont/KosmicsitalicpersonaluseIta-BWm6w.otf" id="2_dle0y"]
+[ext_resource type="FontFile" uid="uid://bu6mmpjs7awm6" path="res://GUI/Fonts/better Font by marcel/LaserCorpsLaser-w13R8.otf" id="4_klpts"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5owpg"]
+font = ExtResource("2_dle0y")
+font_size = 200
+shadow_size = 5
+shadow_color = Color(1, 1, 1, 0)
+
+[sub_resource type="Theme" id="Theme_lwdoo"]
+resource_local_to_scene = true
+default_font = ExtResource("4_klpts")
+default_font_size = 150
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchor_right = 0.997
+anchor_bottom = 0.997
+offset_right = 0.599976
+offset_bottom = 0.0249634
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v2lf7")
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(600.5, 337.5)
+scale = Vector2(1.11019, 0.351563)
+texture = ExtResource("1_8d6aj")
+
+[node name="GameName" type="Label" parent="Bg"]
+offset_left = -383.0
+offset_top = -903.0
+offset_right = 401.0
+offset_bottom = -702.0
+text = "Gravity Wars"
+label_settings = SubResource("LabelSettings_5owpg")
+
+[node name="Continue" type="Button" parent="Bg"]
+offset_left = -203.119
+offset_top = -558.933
+offset_right = 633.881
+offset_bottom = -370.933
+scale = Vector2(0.5, 0.828)
+theme = SubResource("Theme_lwdoo")
+text = "Continue"
+
+[node name="NewGame" type="Button" parent="Bg"]
+offset_left = -200.417
+offset_top = -274.489
+offset_right = 636.583
+offset_bottom = -86.489
+scale = Vector2(0.5, 0.828)
+theme = SubResource("Theme_lwdoo")
+text = "New Game"
+
+[node name="Options" type="Button" parent="Bg"]
+offset_left = -203.119
+offset_top = 18.4888
+offset_right = 633.881
+offset_bottom = 206.489
+scale = Vector2(0.5, 0.828)
+theme = SubResource("Theme_lwdoo")
+text = "Options"
+
+[node name="Exit" type="Button" parent="Bg"]
+offset_left = -203.119
+offset_top = 337.067
+offset_right = 633.881
+offset_bottom = 525.067
+scale = Vector2(0.5, 0.828)
+theme = SubResource("Theme_lwdoo")
+text = "Exit"
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="Sprite2D" parent="Settings"]
+position = Vector2(600.5, 337.5)
+scale = Vector2(1.11019, 0.351563)
+texture = ExtResource("1_8d6aj")
+
+[node name="GameName" type="Label" parent="Settings/Bg"]
+offset_left = -383.0
+offset_top = -903.0
+offset_right = 401.0
+offset_bottom = -702.0
+text = "Gravity Wars"
+label_settings = SubResource("LabelSettings_5owpg")
+
+[node name="Warning" type="Label" parent="Settings/Bg"]
+offset_left = -454.427
+offset_top = -100.978
+offset_right = 1394.57
+offset_bottom = 46.0223
+scale = Vector2(0.5, 1)
+theme_override_font_sizes/font_size = 120
+text = "There is no Options here!"
+
+[node name="Return" type="Button" parent="Settings/Bg"]
+offset_left = -203.118
+offset_top = 703.999
+offset_right = 633.882
+offset_bottom = 891.999
+scale = Vector2(0.5, 0.828)
+theme = SubResource("Theme_lwdoo")
+text = "Return"
+
+[connection signal="pressed" from="Bg/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Bg/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Bg/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Bg/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Settings/Bg/Return" to="." method="_on_return_settings_pressed"]

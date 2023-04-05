@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GravityWars"
-run/main_scene="res://Levels/Playground.tscn"
+run/main_scene="res://GUI/Menu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1200
 window/size/viewport_height=675
 window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="GravityWars"
 
 [editor]
 

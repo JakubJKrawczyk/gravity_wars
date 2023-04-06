@@ -37,6 +37,7 @@ func _physics_process(delta: float) -> void:
 		var force = G*(mass * mo.mass) / pow(dist, 2)
 		resultant_force += global_position.direction_to(mo.global_position) * force
 	constant_force = resultant_force
+	printt(name, linear_velocity.length())
 
 func get_color() -> Color:
 	return (material as ShaderMaterial).get_shader_parameter("color")

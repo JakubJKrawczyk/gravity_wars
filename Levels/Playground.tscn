@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmiidhnox0ton"]
+[gd_scene load_steps=14 format=3 uid="uid://cmiidhnox0ton"]
 
 [ext_resource type="PackedScene" uid="uid://bifgswi0tag7p" path="res://Objects/mass-object.tscn" id="1_ry06n"]
 [ext_resource type="Shader" path="res://Objects/mass-object.gdshader" id="2_d8mu1"]
@@ -9,11 +9,15 @@
 [ext_resource type="LabelSettings" uid="uid://d0l2to0txnunh" path="res://Levels/label_size.tres" id="6_p63tb"]
 [ext_resource type="LabelSettings" uid="uid://su7yx3gbk3ld" path="res://Levels/label_fail.tres" id="7_brk1u"]
 
-[sub_resource type="Gradient" id="Gradient_40vku"]
+[sub_resource type="Gradient" id="Gradient_jjv4f"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_fxamc"]
-gradient = SubResource("Gradient_40vku")
+gradient = SubResource("Gradient_jjv4f")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ttcfh"]
+shader = ExtResource("2_d8mu1")
+shader_parameter/color = Color(1, 0.482353, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekpno"]
 shader = ExtResource("2_d8mu1")
@@ -33,24 +37,25 @@ texture = SubResource("GradientTexture1D_fxamc")
 [node name="Arena" parent="." instance=ExtResource("3_1jtlb")]
 position = Vector2(600, 337)
 
-[node name="ObjectsContainer" type="Node" parent="."]
+[node name="ObjectsContainer" type="Node2D" parent="."]
+position = Vector2(600, 337)
 
 [node name="Object1" parent="ObjectsContainer" instance=ExtResource("1_ry06n")]
-position = Vector2(728, 337)
-linear_velocity = Vector2(0, -280)
+material = SubResource("ShaderMaterial_ttcfh")
+position = Vector2(-128, 0)
+linear_velocity = Vector2(0, -279.5)
 constant_force = Vector2(3.49684, -2.49497)
 radius = 5.0
 
 [node name="Object2" parent="ObjectsContainer" instance=ExtResource("1_ry06n")]
 material = SubResource("ShaderMaterial_ekpno")
-position = Vector2(472, 337)
-linear_velocity = Vector2(0, 280)
+position = Vector2(128, 0)
+linear_velocity = Vector2(0, 279.5)
 constant_force = Vector2(3.49684, -2.49497)
 radius = 5.0
 
-[node name="Object3" parent="ObjectsContainer" instance=ExtResource("1_ry06n")]
+[node name="Star" parent="ObjectsContainer" instance=ExtResource("1_ry06n")]
 material = SubResource("ShaderMaterial_7d0h2")
-position = Vector2(600, 337)
 mass = 100.0
 constant_force = Vector2(-5.55197, 0.908805)
 
@@ -65,6 +70,9 @@ user_object_scene = ExtResource("5_xep03")
 star_mass = 1
 objective_pass = ExtResource("6_kewu6")
 objective_fail = ExtResource("7_brk1u")
+shader = ExtResource("2_d8mu1")
+color = Color(0, 1, 1, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="ClickableArea"]
 layout_mode = 0

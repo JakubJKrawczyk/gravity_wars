@@ -1,19 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2e3lq7qff1f0"]
+[gd_scene load_steps=12 format=3 uid="uid://d2e3lq7qff1f0"]
 
 [ext_resource type="PackedScene" uid="uid://u3x3l7qdjuo" path="res://Objects/arena.tscn" id="1_3u4xn"]
 [ext_resource type="PackedScene" uid="uid://bifgswi0tag7p" path="res://Objects/mass-object.tscn" id="2_gmj70"]
 [ext_resource type="Shader" path="res://Objects/mass-object.gdshader" id="3_hegyr"]
 [ext_resource type="Script" path="res://Levels/ClickableArea.gd" id="4_snnn4"]
-[ext_resource type="PackedScene" uid="uid://clm7jxierdq37" path="res://Objects/user-mass-object.tscn" id="5_nopjc"]
 [ext_resource type="LabelSettings" uid="uid://c071m4f3xoir3" path="res://Levels/label_pass.tres" id="6_8kl7y"]
 [ext_resource type="LabelSettings" uid="uid://su7yx3gbk3ld" path="res://Levels/label_fail.tres" id="7_b7gih"]
 [ext_resource type="LabelSettings" uid="uid://d0l2to0txnunh" path="res://Levels/label_size.tres" id="8_xqh3q"]
 
-[sub_resource type="Gradient" id="Gradient_40vku"]
+[sub_resource type="Gradient" id="Gradient_c6nsw"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_vq4nk"]
-gradient = SubResource("Gradient_40vku")
+gradient = SubResource("Gradient_c6nsw")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ghmgo"]
 shader = ExtResource("3_hegyr")
@@ -57,9 +56,6 @@ offset_right = 1200.0
 offset_bottom = 675.0
 script = ExtResource("4_snnn4")
 container = NodePath("../ObjectsContainer")
-user_object_scene = ExtResource("5_nopjc")
-max_stars = 999
-star_mass = 1
 objective_pass = ExtResource("6_8kl7y")
 objective_fail = ExtResource("7_b7gih")
 shader = ExtResource("3_hegyr")

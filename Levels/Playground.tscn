@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmiidhnox0ton"]
+[gd_scene load_steps=13 format=3 uid="uid://cmiidhnox0ton"]
 
 [ext_resource type="PackedScene" uid="uid://bifgswi0tag7p" path="res://Objects/mass-object.tscn" id="1_ry06n"]
 [ext_resource type="Shader" path="res://Objects/mass-object.gdshader" id="2_d8mu1"]
 [ext_resource type="PackedScene" uid="uid://u3x3l7qdjuo" path="res://Objects/arena.tscn" id="3_1jtlb"]
 [ext_resource type="Script" path="res://Levels/ClickableArea.gd" id="4_m8vqw"]
-[ext_resource type="PackedScene" uid="uid://clm7jxierdq37" path="res://Objects/user-mass-object.tscn" id="5_xep03"]
 [ext_resource type="LabelSettings" uid="uid://c071m4f3xoir3" path="res://Levels/label_pass.tres" id="6_kewu6"]
 [ext_resource type="LabelSettings" uid="uid://d0l2to0txnunh" path="res://Levels/label_size.tres" id="6_p63tb"]
 [ext_resource type="LabelSettings" uid="uid://su7yx3gbk3ld" path="res://Levels/label_fail.tres" id="7_brk1u"]
@@ -66,8 +65,6 @@ offset_right = 1200.0
 offset_bottom = 675.0
 script = ExtResource("4_m8vqw")
 container = NodePath("../ObjectsContainer")
-user_object_scene = ExtResource("5_xep03")
-star_mass = 1
 objective_pass = ExtResource("6_kewu6")
 objective_fail = ExtResource("7_brk1u")
 shader = ExtResource("2_d8mu1")

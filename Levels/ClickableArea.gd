@@ -16,17 +16,10 @@ var object: bool = false
 
 var pressed: bool = false
 
-var max_stars: int = 0
-var star_mass: int
-var star_size: int
-
 func update_star_params(count, mass, _size):
-	max_stars = count
-	star_mass = mass
-	star_size = _size
-	($GridContainer/StarsValue as Label).text = str(max_stars)
-	($GridContainer/MassValue as Label).text = str(star_mass)
-	($GridContainer/SizeValue as Label).text = str(star_size)
+	($GridContainer/StarsValue as Label).text = str(count)
+	($GridContainer/MassValue as Label).text = str(mass)
+	($GridContainer/SizeValue as Label).text = str(_size)
 	
 func _physics_process(delta: float) -> void:
 	var survive = false
@@ -42,12 +35,10 @@ func _physics_process(delta: float) -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and (event as InputEventMouseButton).button_index == 1:
 		if (event as InputEventMouseButton).pressed:
-			if object || max_stars <= 0:
+			if object:
 				return
 			emit_signal("create_star", (event as InputEventMouseButton).position - ($"../ObjectsContainer" as Node2D).position)
 			object = true
-			max_stars -= 1
-			($GridContainer/StarsValue as Label).text = str(max_stars)
 		elif object:
 			emit_signal("release_star")
 			object = false
@@ -55,5 +46,3 @@ func _on_gui_input(event: InputEvent) -> void:
 		if !object:
 			return
 		emit_signal("update_star", (event as InputEventMouseMotion).position)
-		"""var mpos = (event as InputEventMouseMotion).position
-		object.linear_velocity = object.global_position - mpos"""

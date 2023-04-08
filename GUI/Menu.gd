@@ -1,7 +1,10 @@
 extends Control
 
 
-
+@export var user_object_scene: PackedScene
+@export var max_stars = 3
+@export var star_size = 5
+@export var star_mass = 5
 
 func _on_continue_pressed():
 	pass # Replace with function body.

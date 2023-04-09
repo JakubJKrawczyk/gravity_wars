@@ -30,7 +30,7 @@ offset_right = 1200.0
 offset_bottom = 675.0
 texture = SubResource("GradientTexture1D_nft5c")
 
-[node name="Arena" parent="." instance=ExtResource("1_1ni6f")]
+[node name="Arena" parent="." groups=["arena"] instance=ExtResource("1_1ni6f")]
 position = Vector2(600, 337)
 
 [node name="ObjectsContainer" type="Node2D" parent="."]
@@ -103,16 +103,6 @@ offset_bottom = 154.0
 layout_mode = 2
 text = "Objectives"
 label_settings = ExtResource("7_bpj6y")
-
-[node name="Survive" type="Label" parent="ClickableArea/VBoxContainer" groups=["objective"]]
-layout_mode = 2
-text = "Survive"
-label_settings = ExtResource("5_ie5ej")
-
-[node name="Push out everyone" type="Label" parent="ClickableArea/VBoxContainer" groups=["objective"]]
-layout_mode = 2
-text = "Push out everyone"
-label_settings = ExtResource("5_ie5ej")
 
 [node name="WinTimer" type="Timer" parent="."]
 wait_time = 5.0

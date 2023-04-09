@@ -3,6 +3,8 @@ extends Resource
 class_name Objective
 
 @export var label: Label
+@export var completed_settings: LabelSettings
+@export var incompleted_settings: LabelSettings
 
 var completed: bool = false
 var impossible: bool = false

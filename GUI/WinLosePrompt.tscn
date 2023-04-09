@@ -38,7 +38,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 120.0
 grow_horizontal = 2
-text = "Message"
+text = "You lose. Try again?"
 horizontal_alignment = 1
 vertical_alignment = 1
 

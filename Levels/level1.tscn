@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://bs06fn7ole2fx"]
+
+[ext_resource type="PackedScene" uid="uid://bshl73cgcf80v" path="res://Levels/Level.tscn" id="1_kwogn"]
+[ext_resource type="Script" path="res://Levels/level1.gd" id="2_47qha"]
+[ext_resource type="LabelSettings" uid="uid://su7yx3gbk3ld" path="res://Levels/label_fail.tres" id="2_dcegf"]
+[ext_resource type="LabelSettings" uid="uid://c071m4f3xoir3" path="res://Levels/label_pass.tres" id="2_dvvg4"]
+[ext_resource type="Script" path="res://Objectives/Survive.gd" id="4_idc46"]
+[ext_resource type="Script" path="res://Objectives/PushOut.gd" id="5_13xgm"]
+[ext_resource type="PackedScene" uid="uid://bifgswi0tag7p" path="res://Objects/mass-object.tscn" id="6_ph3ir"]
+[ext_resource type="PackedScene" uid="uid://bbswq2i66bv2c" path="res://Levels/level2.tscn" id="7_10rj5"]
+
+[sub_resource type="Resource" id="Resource_licq0"]
+script = ExtResource("4_idc46")
+user_group = "user-obj"
+completed_settings = ExtResource("2_dvvg4")
+incompleted_settings = ExtResource("2_dcegf")
+metadata/_editor_prop_ptr_arena = NodePath("Arena")
+metadata/_editor_prop_ptr_label = NodePath("ClickableArea/VBoxContainer/Survive")
+
+[sub_resource type="Resource" id="Resource_0b5j4"]
+script = ExtResource("5_13xgm")
+default_group = "mass-obj"
+user_group = "user-obj"
+completed_settings = ExtResource("2_dvvg4")
+incompleted_settings = ExtResource("2_dcegf")
+metadata/_editor_prop_ptr_arena = NodePath("Arena")
+metadata/_editor_prop_ptr_label = NodePath("ClickableArea/VBoxContainer/PushOut")
+
+[node name="Level1" instance=ExtResource("1_kwogn")]
+script = ExtResource("2_47qha")
+objectives = Array[Resource("res://Objectives/Obective.gd")]([SubResource("Resource_licq0"), SubResource("Resource_0b5j4")])
+available_stars = 2
+star_mass = 2.0
+star_radius = 10.0
+next_scene = ExtResource("7_10rj5")
+
+[node name="Center" parent="ObjectsContainer" index="0" instance=ExtResource("6_ph3ir")]
+mass = 2.0
+
+[node name="Survive" type="Label" parent="ClickableArea/VBoxContainer" index="1"]
+layout_mode = 2
+text = "Survive"
+label_settings = ExtResource("2_dcegf")
+
+[node name="PushOut" type="Label" parent="ClickableArea/VBoxContainer" index="2"]
+layout_mode = 2
+text = "Push out everyone"
+label_settings = ExtResource("2_dcegf")

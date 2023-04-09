@@ -1,17 +1,14 @@
 extends Control
 
 
-@export var user_object_scene: PackedScene
-@export var max_stars = 3
-@export var star_size = 5
-@export var star_mass = 5
+@export var first_level: PackedScene
 
 func _on_continue_pressed():
 	pass # Replace with function body.
 
 
 func _on_new_game_pressed():
-	get_tree().change_scene_to_file("res://Levels/Playground.tscn")
+	get_tree().change_scene_to_packed(first_level)
 
 
 func _on_options_pressed():

@@ -21,17 +21,6 @@ func update_star_params(count, mass, _size):
 	($GridContainer/MassValue as Label).text = str(mass)
 	($GridContainer/SizeValue as Label).text = str(_size)
 	
-func _physics_process(delta: float) -> void:
-	var survive = false
-	var push_out = true
-	for body in ($"../Arena" as Area2D).get_overlapping_bodies():
-		if body.is_in_group("user-obj"):
-			survive = true
-		elif body.is_in_group("mass-obj"):
-			push_out = false
-	($VBoxContainer/Survive as Label).label_settings = objective_pass if survive else objective_fail
-	($"VBoxContainer/Push out everyone" as Label).label_settings = objective_pass if push_out else objective_fail
-
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and (event as InputEventMouseButton).button_index == 1:
 		if (event as InputEventMouseButton).pressed:

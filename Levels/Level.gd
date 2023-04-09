@@ -42,6 +42,8 @@ func _process(delta: float) -> void:
 		($WinTimer as Timer).start()
 
 func _on_create_star(position: Vector2) -> void:
+	if available_stars == 0:
+		return
 	available_stars -= 1
 	object = star_scene.instantiate() as UserMassObject
 	object.material = ShaderMaterial.new()

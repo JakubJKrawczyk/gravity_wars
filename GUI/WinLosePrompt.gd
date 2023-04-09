@@ -19,9 +19,11 @@ func _process(delta: float) -> void:
 	if back_next:
 		$Replay.visible = false
 		$Next.visible = true
+		$MainMessage.text = "You win!"
 	else:
 		$Replay.visible = true
 		$Next.visible = false
+		$MainMessage.text = "You lose. Try again?"
 
 
 func _on_next_gui_input(event: InputEvent) -> void:

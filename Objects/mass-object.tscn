@@ -5,11 +5,13 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tqi8i"]
 shader = ExtResource("2_y1ffc")
-shader_parameter/color = Color(1, 0.482353, 0, 1)
+shader_parameter/color = Color(1, 0.290553, 0, 1)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wevfy"]
 friction = 0.0
 rough = true
+bounce = 1.0
+absorbent = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_56yge"]
 radius = 9.0
@@ -23,6 +25,7 @@ continuous_cd = 2
 max_contacts_reported = 100
 contact_monitor = true
 script = ExtResource("1_m3nth")
+temperature = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 use_parent_material = true

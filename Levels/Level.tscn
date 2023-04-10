@@ -1,49 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://bshl73cgcf80v"]
+[gd_scene load_steps=12 format=3 uid="uid://bshl73cgcf80v"]
 
 [ext_resource type="PackedScene" uid="uid://u3x3l7qdjuo" path="res://Objects/arena.tscn" id="1_1ni6f"]
 [ext_resource type="Script" path="res://Levels/Level.gd" id="1_p4pr4"]
 [ext_resource type="Script" path="res://Levels/ClickableArea.gd" id="2_0djfb"]
 [ext_resource type="PackedScene" uid="uid://clm7jxierdq37" path="res://Objects/user-mass-object.tscn" id="3_4tbgd"]
 [ext_resource type="LabelSettings" uid="uid://c071m4f3xoir3" path="res://Levels/label_pass.tres" id="4_0unal"]
-[ext_resource type="PackedScene" uid="uid://cqoe22bo0jrsc" path="res://GUI/Menu.tscn" id="4_xdn7e"]
 [ext_resource type="LabelSettings" uid="uid://su7yx3gbk3ld" path="res://Levels/label_fail.tres" id="5_ie5ej"]
-[ext_resource type="PackedScene" uid="uid://bifgswi0tag7p" path="res://Objects/mass-object.tscn" id="6_kjbo2"]
 [ext_resource type="Shader" path="res://Objects/mass-object.gdshader" id="6_kvt7i"]
 [ext_resource type="LabelSettings" uid="uid://d0l2to0txnunh" path="res://Levels/label_size.tres" id="7_bpj6y"]
 [ext_resource type="PackedScene" uid="uid://22fcaponpltp" path="res://GUI/WinLosePrompt.tscn" id="9_m5cup"]
-
-[sub_resource type="Gradient" id="Gradient_jjv4f"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_fxamc"]
-gradient = SubResource("Gradient_jjv4f")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ttcfh"]
-shader = ExtResource("6_kvt7i")
-shader_parameter/color = Color(1, 0.482353, 0, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ekpno"]
-shader = ExtResource("6_kvt7i")
-shader_parameter/color = Color(1, 0.482353, 0, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7d0h2"]
-shader = ExtResource("6_kvt7i")
-shader_parameter/color = Color(1, 1, 0, 1)
-
-[sub_resource type="PackedScene" id="PackedScene_lf3bo"]
-_bundled = {
-"conn_count": 1,
-"conns": PackedInt32Array(7, 7, 50, 49, 2, 0, 0),
-"editable_instances": [],
-"names": PackedStringArray("World", "Node2D", "Background", "offset_right", "offset_bottom", "texture", "TextureRect", "Arena", "position", "ObjectsContainer", "Object1", "material", "linear_velocity", "constant_force", "radius", "Object2", "Star", "mass", "ClickableArea", "layout_mode", "anchors_preset", "script", "container", "objective_pass", "objective_fail", "shader", "color", "metadata/_edit_use_anchors_", "Control", "GridContainer", "offset_left", "offset_top", "columns", "Stars", "custom_minimum_size", "text", "label_settings", "Label", "StarsValue", "size_flags_horizontal", "Mass", "MassValue", "Size", "SizeValue", "VBoxContainer", "Title", "Survive", "objective", "Push out everyone", "_on_gui_input", "gui_input"),
-"node_count": 19,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 6, 2, -1, 3, 3, 0, 4, 1, 5, 2, 0, 0, 0, 2147483647, 7, 3, 1, 8, 4, 0, 0, 0, 1, 9, -1, 1, 8, 4, 0, 3, 0, 2147483647, 10, 5, 5, 11, 6, 8, 7, 12, 8, 13, 9, 14, 10, 0, 3, 0, 2147483647, 15, 5, 5, 11, 11, 8, 12, 12, 13, 13, 9, 14, 10, 0, 3, 0, 2147483647, 16, 5, 3, 11, 14, 17, 15, 13, 16, 0, 0, 0, 28, 18, -1, 11, 19, 17, 20, 18, 3, 0, 4, 1, 21, 19, 1073741846, 20, 23, 21, 24, 22, 25, 23, 26, 24, 27, 25, 0, 7, 0, 29, 29, -1, 6, 19, 18, 30, 26, 31, 27, 3, 28, 4, 29, 32, 30, 0, 8, 0, 37, 33, -1, 4, 34, 31, 19, 30, 35, 32, 36, 33, 0, 8, 0, 37, 38, -1, 4, 19, 30, 39, 18, 35, 34, 36, 33, 0, 8, 0, 37, 40, -1, 3, 19, 30, 35, 35, 36, 33, 0, 8, 0, 37, 41, -1, 3, 19, 30, 35, 36, 36, 33, 0, 8, 0, 37, 42, -1, 3, 19, 30, 35, 37, 36, 33, 0, 8, 0, 37, 43, -1, 3, 19, 30, 35, 36, 36, 33, 0, 7, 0, 44, 44, -1, 5, 19, 18, 30, 38, 31, 27, 3, 39, 4, 40, 0, 15, 0, 37, 45, -1, 3, 19, 30, 35, 41, 36, 33, 0, 15, 0, 37, 46, -1, 3, 19, 30, 35, 42, 36, 22, 1, 47, 15, 0, 37, 48, -1, 3, 19, 30, 35, 43, 36, 22, 1, 47),
-"variants": [1200.0, 675.0, SubResource("GradientTexture1D_fxamc"), ExtResource("1_1ni6f"), Vector2(600, 337), ExtResource("6_kjbo2"), SubResource("ShaderMaterial_ttcfh"), Vector2(-128, 0), Vector2(0, -279.5), Vector2(3.49684, -2.49497), 5.0, SubResource("ShaderMaterial_ekpno"), Vector2(128, 0), Vector2(0, 279.5), SubResource("ShaderMaterial_7d0h2"), 100.0, Vector2(-5.55197, 0.908805), 3, 0, ExtResource("2_0djfb"), NodePath("../ObjectsContainer"), ExtResource("4_0unal"), ExtResource("5_ie5ej"), ExtResource("6_kvt7i"), Color(0, 1, 1, 1), true, 48.0, 24.0, 248.0, 192.0, 2, Vector2(150, 0), "Stars", ExtResource("7_bpj6y"), "3", "Mass", "5
-", "Size
-", 960.0, 1121.0, 72.0, "Objectives", "Survive", "Push out everyone"],
-"version": 3
-}
 
 [sub_resource type="Gradient" id="Gradient_40vku"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -55,8 +20,6 @@ gradient = SubResource("Gradient_40vku")
 script = ExtResource("1_p4pr4")
 shader = ExtResource("6_kvt7i")
 star_scene = ExtResource("3_4tbgd")
-menu_scene = ExtResource("4_xdn7e")
-next_scene = SubResource("PackedScene_lf3bo")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 1200.0

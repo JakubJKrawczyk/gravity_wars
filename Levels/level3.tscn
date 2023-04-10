@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Objectives/Survive.gd" id="3_u3b3y"]
 [ext_resource type="Script" path="res://Objectives/PushOut.gd" id="4_hw2om"]
 [ext_resource type="LabelSettings" uid="uid://su7yx3gbk3ld" path="res://Levels/label_fail.tres" id="5_kbj37"]
-[ext_resource type="PackedScene" uid="uid://cqoe22bo0jrsc" path="res://GUI/Menu.tscn" id="7_1b2j0"]
+[ext_resource type="PackedScene" uid="uid://cqoe22bo0jrsc" path="res://GUI/Menu.tscn" id="7_24flt"]
 [ext_resource type="PackedScene" uid="uid://bifgswi0tag7p" path="res://Objects/mass-object.tscn" id="7_x782e"]
 [ext_resource type="Shader" path="res://Objects/mass-object.gdshader" id="8_j2wxf"]
 
@@ -42,7 +42,8 @@ shader_parameter/color = Color(1, 1, 0, 1)
 [node name="Level3" instance=ExtResource("1_m60n3")]
 script = ExtResource("2_8rvmx")
 objectives = Array[Resource("res://Objectives/Obective.gd")]([SubResource("Resource_yiye2"), SubResource("Resource_ok1qg")])
-next_scene = ExtResource("7_1b2j0")
+menu_scene = ExtResource("7_24flt")
+next_scene = ExtResource("7_24flt")
 
 [node name="Object1" parent="ObjectsContainer" index="0" instance=ExtResource("7_x782e")]
 material = SubResource("ShaderMaterial_wvds1")

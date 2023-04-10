@@ -10,7 +10,6 @@ shader_parameter/color = Color(0.172549, 1, 1, 1)
 
 [node name="Object" groups=["user-obj"] instance=ExtResource("1_te5tx")]
 material = SubResource("ShaderMaterial_j7k6e")
-freeze = true
 script = ExtResource("2_0u81r")
 
 [node name="Arrow" type="Polygon2D" parent="." index="0"]

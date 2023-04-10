@@ -1,0 +1,134 @@
+[gd_scene load_steps=7 format=3 uid="uid://22fcaponpltp"]
+
+[ext_resource type="Script" path="res://GUI/WinLosePrompt.gd" id="1_dw770"]
+[ext_resource type="Shader" path="res://GUI/invert.gdshader" id="1_j4b65"]
+[ext_resource type="Texture2D" uid="uid://c058uoikg1srp" path="res://GUI/Assets/keyboard_backspace_black_48dp.svg" id="2_ljxc6"]
+[ext_resource type="Texture2D" uid="uid://cldnwgwqqsgyx" path="res://GUI/Assets/replay_black_48dp.svg" id="3_fws4b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_siep1"]
+shader = ExtResource("1_j4b65")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s54bi"]
+shader = ExtResource("1_j4b65")
+
+[node name="WinLosePrompt" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -800.0
+offset_bottom = -450.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dw770")
+back_next = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.498039)
+
+[node name="MainMessage" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+text = "You lose. Try again?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 110.0
+grow_vertical = 0
+
+[node name="Arrow" type="Sprite2D" parent="BackToMenu"]
+material = SubResource("ShaderMaterial_siep1")
+position = Vector2(20, 20)
+texture = ExtResource("2_ljxc6")
+
+[node name="Label" type="Label" parent="BackToMenu"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -13.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Menu"
+
+[node name="Replay" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ReplayArrow" type="Sprite2D" parent="Replay"]
+material = SubResource("ShaderMaterial_s54bi")
+position = Vector2(95, 20)
+texture = ExtResource("3_fws4b")
+
+[node name="Label" type="Label" parent="Replay"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Repeat"
+
+[node name="Next" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Next" type="Sprite2D" parent="Next"]
+material = SubResource("ShaderMaterial_siep1")
+position = Vector2(85, 20)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("2_ljxc6")
+
+[node name="Label" type="Label" parent="Next"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Next"
+
+[connection signal="gui_input" from="BackToMenu" to="." method="_on_back_to_menu_gui_input"]
+[connection signal="gui_input" from="Replay" to="." method="_on_replay_gui_input"]
+[connection signal="gui_input" from="Next" to="." method="_on_next_gui_input"]

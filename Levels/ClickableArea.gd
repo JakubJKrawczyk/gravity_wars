@@ -1,56 +1,37 @@
 extends Control
 
+class_name ClickableArea
+
 @export var container: Node
-@export var user_object_scene: PackedScene
-@export var max_stars = 3
-@export var star_size = 5
-@export var star_mass = 5
 @export var objective_pass: LabelSettings
 @export var objective_fail: LabelSettings
 @export var shader: Shader
 @export var color: Color
 
-var object: UserMassObject = null
+signal create_star(position: Vector2)
+signal release_star
+signal update_star(position: Vector2)
+
+var object: bool = false
 
 var pressed: bool = false
 
-func _ready() -> void:
-	($GridContainer/StarsValue as Label).text = str(max_stars)
-	($GridContainer/MassValue as Label).text = str(star_mass)
-	($GridContainer/SizeValue as Label).text = str(star_size)
+func update_star_params(count, mass, _size):
+	($GridContainer/StarsValue as Label).text = str(count)
+	($GridContainer/MassValue as Label).text = str(mass)
+	($GridContainer/SizeValue as Label).text = str(_size)
 	
-func _physics_process(delta: float) -> void:
-	var survive = false
-	var push_out = true
-	for body in ($"../Arena" as Area2D).get_overlapping_bodies():
-		if body.is_in_group("user-obj"):
-			survive = true
-		elif body.is_in_group("mass-obj"):
-			push_out = false
-	($VBoxContainer/Survive as Label).label_settings = objective_pass if survive else objective_fail
-	($"VBoxContainer/Push out everyone" as Label).label_settings = objective_pass if push_out else objective_fail
-
 func _on_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if (event as InputEventMouseButton).button_index != 1:
-			return
+	if event is InputEventMouseButton and (event as InputEventMouseButton).button_index == 1:
 		if (event as InputEventMouseButton).pressed:
-			if object != null || max_stars <= 0:
+			if object:
 				return
-			object = user_object_scene.instantiate() as UserMassObject
-			object.material = ShaderMaterial.new()
-			(object.material as ShaderMaterial).shader = shader
-			(object.material as ShaderMaterial).set_shader_parameter("color", color)
-			object.position = (event as InputEventMouseButton).position - ($"../ObjectsContainer" as Node2D).position
-			object.set_size(Vector2(star_size/10.0, star_size/10.0))
-			object.mass = star_mass
-			container.add_child(object)
-			max_stars -= 1
-			($GridContainer/StarsValue as Label).text = str(max_stars)
-		elif object != null:
-			object.release()
-			object = null
+			emit_signal("create_star", (event as InputEventMouseButton).position - ($"../ObjectsContainer" as Node2D).position)
+			object = true
+		elif object:
+			emit_signal("release_star")
+			object = false
 	elif event is InputEventMouseMotion:
-		if object != null:
-			var mpos = (event as InputEventMouseMotion).position
-			object.linear_velocity = object.global_position - mpos
+		if !object:
+			return
+		emit_signal("update_star", (event as InputEventMouseMotion).position)

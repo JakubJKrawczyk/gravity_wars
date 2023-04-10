@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqoe22bo0jrsc"]
+[gd_scene load_steps=8 format=3 uid="uid://cqoe22bo0jrsc"]
 
 [ext_resource type="Texture2D" uid="uid://da2spbinhdinp" path="res://GUI/Images/BG.webp" id="1_8d6aj"]
 [ext_resource type="Script" path="res://GUI/Menu.gd" id="1_v2lf7"]
+[ext_resource type="PackedScene" uid="uid://bs06fn7ole2fx" path="res://Levels/level1.tscn" id="2_aroy2"]
 [ext_resource type="FontFile" uid="uid://dl6vrsfjpetrl" path="res://GUI/Fonts/KosmicFont/KosmicsitalicpersonaluseIta-BWm6w.otf" id="2_dle0y"]
 [ext_resource type="FontFile" uid="uid://bu6mmpjs7awm6" path="res://GUI/Fonts/better Font by marcel/LaserCorpsLaser-w13R8.otf" id="4_klpts"]
 
@@ -25,6 +26,7 @@ offset_bottom = 0.0249634
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v2lf7")
+first_level = ExtResource("2_aroy2")
 
 [node name="Bg" type="Sprite2D" parent="."]
 position = Vector2(600.5, 337.5)

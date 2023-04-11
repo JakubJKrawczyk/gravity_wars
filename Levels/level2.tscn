@@ -1,0 +1,65 @@
+[gd_scene load_steps=14 format=3 uid="uid://bbswq2i66bv2c"]
+
+[ext_resource type="PackedScene" uid="uid://bshl73cgcf80v" path="res://Levels/Level.tscn" id="1_tmhri"]
+[ext_resource type="Script" path="res://Levels/level2.gd" id="2_3qaeb"]
+[ext_resource type="LabelSettings" uid="uid://c071m4f3xoir3" path="res://Levels/label_pass.tres" id="3_65nb5"]
+[ext_resource type="LabelSettings" uid="uid://su7yx3gbk3ld" path="res://Levels/label_fail.tres" id="4_ty0jm"]
+[ext_resource type="Script" path="res://Objectives/Survive.gd" id="5_lnief"]
+[ext_resource type="Script" path="res://Objectives/PushOut.gd" id="6_jjs8m"]
+[ext_resource type="PackedScene" uid="uid://c5noshyjya3hy" path="res://Levels/level3.tscn" id="7_8wr1k"]
+[ext_resource type="PackedScene" uid="uid://bifgswi0tag7p" path="res://Objects/mass-object.tscn" id="7_d0grt"]
+[ext_resource type="Shader" path="res://Objects/mass-object.gdshader" id="8_hfqry"]
+
+[sub_resource type="Resource" id="Resource_56plu"]
+script = ExtResource("5_lnief")
+user_group = "user-obj"
+completed_settings = ExtResource("3_65nb5")
+incompleted_settings = ExtResource("4_ty0jm")
+metadata/_editor_prop_ptr_arena = NodePath("Arena")
+metadata/_editor_prop_ptr_label = NodePath("ClickableArea/VBoxContainer/Survive")
+
+[sub_resource type="Resource" id="Resource_kdebm"]
+script = ExtResource("6_jjs8m")
+default_group = "mass-obj"
+user_group = "user-obj"
+completed_settings = ExtResource("3_65nb5")
+incompleted_settings = ExtResource("4_ty0jm")
+metadata/_editor_prop_ptr_arena = NodePath("Arena")
+metadata/_editor_prop_ptr_label = NodePath("ClickableArea/VBoxContainer/PushOut")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_seex5"]
+shader = ExtResource("8_hfqry")
+shader_parameter/color = Color(1, 0.482353, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_co0xd"]
+shader = ExtResource("8_hfqry")
+shader_parameter/color = Color(1, 0.482353, 0, 1)
+
+[node name="Level2" instance=ExtResource("1_tmhri")]
+script = ExtResource("2_3qaeb")
+objectives = Array[Resource("res://Objectives/Obective.gd")]([SubResource("Resource_56plu"), SubResource("Resource_kdebm")])
+next_scene = ExtResource("7_8wr1k")
+
+[node name="StarA" parent="ObjectsContainer" index="0" instance=ExtResource("7_d0grt")]
+material = SubResource("ShaderMaterial_seex5")
+position = Vector2(100, 0)
+mass = 100.0
+linear_velocity = Vector2(0, -100)
+constant_force = Vector2(3.49684, -2.49497)
+
+[node name="StarB" parent="ObjectsContainer" index="1" instance=ExtResource("7_d0grt")]
+material = SubResource("ShaderMaterial_co0xd")
+position = Vector2(-100, 0)
+mass = 100.0
+linear_velocity = Vector2(0, 100)
+constant_force = Vector2(3.49684, -2.49497)
+
+[node name="Survive" type="Label" parent="ClickableArea/VBoxContainer" index="1"]
+layout_mode = 2
+text = "Survive"
+label_settings = ExtResource("4_ty0jm")
+
+[node name="PushOut" type="Label" parent="ClickableArea/VBoxContainer" index="2"]
+layout_mode = 2
+text = "Push out everyone"
+label_settings = ExtResource("4_ty0jm")

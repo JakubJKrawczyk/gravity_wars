@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4qif6610aadt"]
+
+[ext_resource type="Script" path="res://GUI/Templates/Level/LevelTemplate.gd" id="1_2j8ea"]
+[ext_resource type="FontFile" uid="uid://bjy2mnj32q7fm" path="res://GUI/Fonts/BigSpace/BigSpace-rPKx.ttf" id="2_swpeh"]
+
+[sub_resource type="Theme" id="Theme_g4plr"]
+default_font = ExtResource("2_swpeh")
+default_font_size = 35
+
+[sub_resource type="Theme" id="Theme_fubak"]
+default_font = ExtResource("2_swpeh")
+
+[node name="LevelTemplate" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2j8ea")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 200.0
+color = Color(0.14902, 0.14902, 0.14902, 0.27451)
+
+[node name="LevelName" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 50.0
+offset_right = 150.0
+offset_bottom = 50.0
+theme = SubResource("Theme_g4plr")
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Background"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 150.0
+offset_right = 125.0
+offset_bottom = 180.0
+theme = SubResource("Theme_fubak")
+text = "Play"
+
+[connection signal="pressed" from="Background/Button" to="." method="_on_button_pressed"]

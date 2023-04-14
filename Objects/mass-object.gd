@@ -6,9 +6,12 @@ class_name MassObject
 
 ## Gravity constant
 var G: float = pow(10, 5)
-
+@export var IsMenu = false
 @export var radius: float = 10
-
+@export var maxY:float = 775
+@export var maxX:float = 1300
+@export var minY:float = -100
+@export var minX:float = -100
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_size(Vector2(radius/10, radius/10))
@@ -18,12 +21,15 @@ func update_line(target: Vector2):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	
 	if Engine.is_editor_hint():
 		update_line(linear_velocity)
 		set_size(Vector2(radius/10, radius/10))
 		return
 	if is_queued_for_deletion():
 		return
+	if (global_position.x > maxX or global_position.y > maxY or global_position.x < minX or global_position.y < minY) and (IsMenu):
+		queue_free()
 	var resultant_force: Vector2 = Vector2.ZERO
 	for obj in get_tree().get_nodes_in_group("mass-obj"):
 		var mo = obj as MassObject

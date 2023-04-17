@@ -195,7 +195,7 @@ class GeneticProblem:
         pool: Pool = Pool(os.cpu_count() - 1)
         sort = list(pool.map(self.map_fitness, children))
         pool.close()
-        sort = sorted(sort, key=lambda x: x[1])
+        sort = sorted(sort, key=lambda x: x[1], reverse=True)
         sort = list(map(lambda x: x[0], sort))
         return sort[:self.max_population]
 

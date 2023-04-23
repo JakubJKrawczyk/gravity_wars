@@ -6,6 +6,7 @@ class_name UserMassObject
 
 func _ready() -> void:
 	remove_from_group("mass-obj")
+	freeze = true
 	
 func _process(delta: float) -> void:
 	velocity_arrow.scale = Vector2(linear_velocity.length() / 10, 1)

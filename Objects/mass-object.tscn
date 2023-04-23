@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Objects/mass-object.gd" id="1_m3nth"]
 [ext_resource type="Shader" path="res://Objects/mass-object.gdshader" id="2_y1ffc"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tqi8i"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yqtqs"]
 shader = ExtResource("2_y1ffc")
 shader_parameter/color = Color(1, 0.290553, 0, 1)
 
@@ -19,13 +19,12 @@ radius = 9.0
 [sub_resource type="QuadMesh" id="QuadMesh_ppx34"]
 
 [node name="Object" type="RigidBody2D" groups=["mass-obj"]]
-material = SubResource("ShaderMaterial_tqi8i")
+material = SubResource("ShaderMaterial_yqtqs")
 physics_material_override = SubResource("PhysicsMaterial_wevfy")
 continuous_cd = 2
 max_contacts_reported = 100
 contact_monitor = true
 script = ExtResource("1_m3nth")
-temperature = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 use_parent_material = true

@@ -8,15 +8,15 @@
 [sub_resource type="Resource" id="Resource_x5uuo"]
 script = ExtResource("2_yhtll")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ixu51"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8n00m"]
 shader = ExtResource("4_lkq4b")
 shader_parameter/color = Color(0.997682, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_a4bk0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3mlpv"]
 shader = ExtResource("4_lkq4b")
 shader_parameter/color = Color(1, 0.290553, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5c21a"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mudlt"]
 shader = ExtResource("4_lkq4b")
 shader_parameter/color = Color(0.846702, 0.885206, 1, 1)
 
@@ -25,21 +25,20 @@ objectives = Array[Resource("res://Objectives/Obective.gd")]([SubResource("Resou
 available_stars = 999
 
 [node name="StarA" parent="ObjectsContainer" index="0" instance=ExtResource("2_nurke")]
-material = SubResource("ShaderMaterial_ixu51")
+material = SubResource("ShaderMaterial_8n00m")
 position = Vector2(-50, 0)
 mass = 10.0
 linear_velocity = Vector2(0, -500)
 temperature = 6500.0
 
 [node name="StarB" parent="ObjectsContainer" index="1" instance=ExtResource("2_nurke")]
-material = SubResource("ShaderMaterial_a4bk0")
+material = SubResource("ShaderMaterial_3mlpv")
 position = Vector2(50, 0)
 mass = 10.0
 linear_velocity = Vector2(0, -500)
-temperature = 1500.0
 
 [node name="StarC" parent="ObjectsContainer" index="2" instance=ExtResource("2_nurke")]
-material = SubResource("ShaderMaterial_5c21a")
+material = SubResource("ShaderMaterial_mudlt")
 position = Vector2(0, 103)
 mass = 10000.0
 temperature = 10000.0

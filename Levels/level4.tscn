@@ -1,0 +1,46 @@
+[gd_scene load_steps=12 format=3 uid="uid://cvrfva85kwrx5"]
+
+[ext_resource type="PackedScene" uid="uid://bshl73cgcf80v" path="res://Levels/Level.tscn" id="1_4w1q2"]
+[ext_resource type="Script" path="res://Levels/level4.gd" id="2_b4u8w"]
+[ext_resource type="Script" path="res://Objectives/EscapeObjective.gd" id="3_hvcex"]
+[ext_resource type="LabelSettings" uid="uid://c071m4f3xoir3" path="res://Levels/label_pass.tres" id="3_i1rxh"]
+[ext_resource type="LabelSettings" uid="uid://su7yx3gbk3ld" path="res://Levels/label_fail.tres" id="4_raklv"]
+[ext_resource type="Script" path="res://Objectives/GravityWell.gd" id="5_2flgo"]
+[ext_resource type="PackedScene" uid="uid://bifgswi0tag7p" path="res://Objects/mass-object.tscn" id="7_pa1y4"]
+[ext_resource type="Shader" path="res://Objects/mass-object.gdshader" id="8_lx62r"]
+
+[sub_resource type="Resource" id="Resource_0euw8"]
+script = ExtResource("5_2flgo")
+user_group = "user-obj"
+init_stars = 3
+completed_settings = ExtResource("3_i1rxh")
+incompleted_settings = ExtResource("4_raklv")
+metadata/_editor_prop_ptr_arena = NodePath("Arena")
+metadata/_editor_prop_ptr_label = NodePath("ClickableArea/VBoxContainer/GravityWell")
+
+[sub_resource type="Resource" id="Resource_k0q0g"]
+script = ExtResource("3_hvcex")
+user_group = "user-obj"
+cosmos_border = 1000.0
+metadata/_editor_prop_ptr_arena = NodePath("Arena")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_56w6m"]
+shader = ExtResource("8_lx62r")
+shader_parameter/color = Color(1, 0.645276, 0.456522, 1)
+
+[node name="Level4" instance=ExtResource("1_4w1q2")]
+script = ExtResource("2_b4u8w")
+objectives = Array[Resource("res://Objectives/Obective.gd")]([SubResource("Resource_0euw8"), SubResource("Resource_k0q0g")])
+available_stars = 1
+
+[node name="BlackHole" parent="ObjectsContainer" index="0" instance=ExtResource("7_pa1y4")]
+material = SubResource("ShaderMaterial_56w6m")
+mass = 5.0
+constant_force = Vector2(-5.55197, 0.908805)
+radius = 5.0
+temperature = 4000.0
+
+[node name="GravityWell" type="Label" parent="ClickableArea/VBoxContainer" index="1"]
+layout_mode = 2
+text = "Use gravity well"
+label_settings = ExtResource("4_raklv")

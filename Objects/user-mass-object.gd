@@ -3,7 +3,6 @@ extends MassObject
 class_name UserMassObject
 
 @onready var velocity_arrow = $Arrow as Node2D
-
 func _ready() -> void:
 	remove_from_group("mass-obj")
 	

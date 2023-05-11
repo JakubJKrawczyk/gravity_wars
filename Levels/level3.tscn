@@ -49,10 +49,6 @@ position = Vector2(-128, 0)
 linear_velocity = Vector2(0, -279.5)
 constant_force = Vector2(3.49684, -2.49497)
 radius = 5.0
-maxY = 1000.0
-maxX = 1000.0
-minY = 0.0
-minX = 0.0
 
 [node name="Object2" parent="ObjectsContainer" index="1" instance=ExtResource("7_x782e")]
 material = SubResource("ShaderMaterial_dyvkx")
@@ -60,19 +56,11 @@ position = Vector2(128, 0)
 linear_velocity = Vector2(0, 279.5)
 constant_force = Vector2(3.49684, -2.49497)
 radius = 5.0
-maxY = 1000.0
-maxX = 1000.0
-minY = 0.0
-minX = 0.0
 
 [node name="Star" parent="ObjectsContainer" index="2" instance=ExtResource("7_x782e")]
 material = SubResource("ShaderMaterial_4trfi")
 mass = 100.0
 constant_force = Vector2(-5.55197, 0.908805)
-maxY = 1000.0
-maxX = 1000.0
-minY = 0.0
-minX = 0.0
 
 [node name="Survive" type="Label" parent="ClickableArea/VBoxContainer" index="1"]
 layout_mode = 2
